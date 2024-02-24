@@ -36,7 +36,7 @@ import (
 var (
 	baseDir                        = filepath.Join(".", "testdata")
 	blockTestDir                   = filepath.Join(baseDir, "BlockchainTests")
-  blockStateTestDir              = filepath.Join(blockTestDir, "GeneralStateTests")
+    blockStateTestDir              = filepath.Join(blockTestDir, "GeneralStateTests")
 	stateTestDir                   = filepath.Join(baseDir, "GeneralStateTests")
 	legacyStateTestDir             = filepath.Join(baseDir, "LegacyTests", "Constantinople", "GeneralStateTests")
 	transactionTestDir             = filepath.Join(baseDir, "TransactionTests")
@@ -227,7 +227,7 @@ func (tm *testMatcher) runTestFile(t *testing.T, path, name string, runTest inte
 			t.Skip("Skipped by runonly")
 		}
 	}
-	t.Parallel()
+	//t.Parallel()
 
 	// Load the file as map[string]<testType>.
 	m := makeMapFromTestFunc(runTest)
@@ -282,7 +282,7 @@ func runTestFunc(runTest interface{}, t *testing.T, name string, m reflect.Value
 }
 
 func TestMatcherRunonlylist(t *testing.T) {
-	t.Parallel()
+	//t.Parallel()
 	tm := new(testMatcher)
 	tm.runonly("invalid*")
 	tm.walk(t, rlpTestDir, func(t *testing.T, name string, test *RLPTest) {
