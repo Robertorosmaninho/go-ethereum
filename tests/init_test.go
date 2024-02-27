@@ -156,6 +156,14 @@ func (tm *testMatcher) findSkip(name string) (reason string, skipload bool) {
 			return "skipped by skipLoad", true
 		}
 	}
+
+	if strings.Contains(name, "Shanghai/") {
+		return "Skipping Shangai as it isn't accepted by KEVM", true
+	}
+
+	if strings.Contains(name, "VMTests") {
+		return "Skipping VMTests as it isn't accepted by KEVM", true
+	}
 	return "", false
 }
 
