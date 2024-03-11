@@ -53,6 +53,7 @@ func TestBlockchain(t *testing.T) {
 		if runtime.GOARCH == "386" && runtime.GOOS == "windows" && rand.Int63()%2 == 0 {
 			t.Skip("test (randomly) skipped on 32-bit windows")
 		}
+
 		execBlockTest(t, bt, test)
 	})
 	// There is also a LegacyTests folder, containing blockchain tests generated
